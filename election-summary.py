@@ -52,17 +52,35 @@ with open(csvpath) as csvfile:
         winner = "Li"
     elif (otooley > khan) and (otooley > correy) and (otooley > li):
         winner = "OTooley"
-# find the winner using if statements
 
-print("------------------------------------------")
-print("Election Results")
-print("------------------------------------------")
-print(f'Total votes cast: {nvotes}')
-print("------------------------------------------")
-print(f'Khan: {khan} ({perkhan}%)')
-print(f'Correy: {correy} ({percorrey}%) ')
-print(f'Li: {li} ({perli}%) ')
-print(f'OTooley: {otooley} ({perotooley}%) ')
-print("------------------------------------------")
-print(f'Winner: {winner}')
-print("------------------------------------------")
+line1 = print(f"------------------------------------------")
+line2 = print(f"Election Results")
+line3 = print(f"------------------------------------------")
+line4 = print(f'Total votes cast: {nvotes}')
+line5 = print(f"------------------------------------------")
+line6 = print(f'Khan: {khan} ({perkhan}%)')
+line7 = print(f'Correy: {correy} ({percorrey}%)')
+line8 = print(f'Li: {li} ({perli}%) ')
+line9 = print(f'OTooley: {otooley} ({perotooley}%)')
+line10 = print(f"------------------------------------------")
+line11 = print(f'Winner: {winner}')
+line12 = print(f"------------------------------------------")
+
+summary = [line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11,line12]
+
+with open("election-summary","ElectionSummary.txt", "w+") as output:
+
+    print(f"------------------------------------------", file=output)
+    print(f"Election Results", file=output)
+    print(f"------------------------------------------", file=output)
+    print(f'Total votes cast: {nvotes}', file=output)
+    print(f"------------------------------------------", file=output)
+    print(f'Khan: {khan} ({perkhan}%)', file=output)
+    print(f'Correy: {correy} ({percorrey}%)', file=output)
+    print(f'Li: {li} ({perli}%)', file=output)
+    print(f'OTooley: {otooley} ({perotooley}%)', file=output)
+    print(f"------------------------------------------", file=output)
+    print(f'Winner: {winner}', file=output)
+    print(f"------------------------------------------", file=output)
+
+output.close()

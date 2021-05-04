@@ -7,7 +7,6 @@ khanvotes = []
 correyvotes = []
 livotes = []
 otooleyvotes = []
-county = []
 # candidates = []
 
 with open(csvpath) as csvfile:
@@ -26,7 +25,6 @@ with open(csvpath) as csvfile:
 
     for row in csvreader:
         votes.append(row[0])
-        county.append(row[1])
         if row[2] == "Khan":
             khanvotes.append(row[0])
         elif row[2] == "Correy":
@@ -35,8 +33,6 @@ with open(csvpath) as csvfile:
             livotes.append(row[0])
         elif row[2] == "O'Tooley":
             otooleyvotes.append(row[0])    
-
-    
 
     nvotes = len(votes)
     khan = len(khanvotes)
@@ -47,6 +43,15 @@ with open(csvpath) as csvfile:
     percorrey = round((correy/nvotes * 100), 1)
     perli = round((li/nvotes * 100), 1)
     perotooley = round((otooley/nvotes * 100), 1)
+    
+    if (khan > correy) and (khan > li) and (khan > otooley):
+        winner = "Khan"
+    elif (correy > khan) and (correy > li) and (correy > otooley):
+        winner = "Correy"
+    elif (li > khan) and (li > correy) and (li > otooley):
+        winner = "Li"
+    elif (otooley > khan) and (otooley > correy) and (otooley > li):
+        winner = "OTooley"
 # find the winner using if statements
 
 print("------------------------------------------")
